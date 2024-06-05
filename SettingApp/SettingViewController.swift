@@ -10,6 +10,7 @@ struct setting {
     var name: String
     var image: String
 }
+
 struct category {
     var settings: [setting]
 }
