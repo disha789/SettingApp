@@ -24,6 +24,7 @@ class SettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.backgroundColor = UIColor.lightGray
         generateData()
     }
     
@@ -59,7 +60,7 @@ extension SettingViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Section \(section)"
+        return " "
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -69,8 +70,11 @@ extension SettingViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SettingTableViewCell", for: indexPath) as! SettingTableViewCell
         let setting = categories[indexPath.section].settings[indexPath.row]
+        cell.backgroundColor = UIColor.clear
         cell.nameLabel.text = setting.name
         cell.logoImage.image = UIImage(systemName: setting.image)
+//       cell.layer.cornerRadius = 10
+//        cell.layer.masksToBounds = true
         return cell
     }
 }
